@@ -1,0 +1,20 @@
+.main-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.div-main-item {
+    width: 60%;
+}
+
+.btn-add {
+    width: 10%;
+    height: 30px;
+    background-color: var(--color-click);
+    color: white;
+    border: none;
+    size: 16px;
+}
