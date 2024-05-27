@@ -1,0 +1,22 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-main : #f5f1f1;
+    --color-click : #045541d5;
+}
+
+.justify-content-right {
+    justify-content: end;
+}
+
+.justify-content-left {
+    justify-content: start;
+}

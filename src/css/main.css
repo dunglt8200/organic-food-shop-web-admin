@@ -1,0 +1,319 @@
+@import "/src/css/common.css";
+
+.header-top {
+    width: 100%;
+    height: 40px;
+    background-color: var(--color-main);
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.header-bottom {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-item {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-bottom-item {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-bottom-item-center {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.ul-header-item {
+    display: flex;
+    gap: 10px;
+}
+
+.li-header-item {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    align-items: center;
+}
+
+.li-dropdown:hover {
+    color: white;
+    background-color:var(--color-main);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ul-header-item-menu {
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+    position: relative;
+}
+
+.link-menu {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link-menu:focus {
+    color: var(--color-click);
+    border-bottom: 1px solid var(--color-click);
+}
+
+.ul-dropdown-list {
+    top: 25px;
+    position: absolute;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    width: 28%;
+    display: none;
+    transition: background-color 0.3s;
+    border: 1px solid var(--color-click);
+}
+
+.ul-header-item-menu li:hover .ul-dropdown-list {
+    display: flex;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.div-footer {
+    height: auto;
+    width: 16%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.li-footer-item {
+    list-style-type: none;
+    font-size: large;
+}
+
+.ul-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.style-text {
+    font-weight: bold;
+}
+
+.size-text-30 {
+    font-size: 30px;
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-main);
+    gap: 55px;
+}
+
+.input {
+    height: 35px;
+    width: 200px;
+    border: #f0f0f0;
+    text-align: center;
+}
+.button {
+    height: 35px;
+    width: 100px;
+    background-color: var(--color-click);
+    color: white;
+    border: 0;
+    outline: none;
+}
+
+.header-menu-banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    gap: 25px;
+}
+
+.header-menu {
+    height: fit-content;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #a1a1a1;
+}
+
+.header-banner {
+    height: auto;
+    width: 55%;
+}
+
+.button-menu {
+    height: 35px;
+    width: 100%;
+    font-size: medium;
+    background-color: var(--color-click);
+    color: white;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    align-items: center;
+}
+
+.ul-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 60px;
+    padding-bottom: 10px;
+}
+
+.link-dropdown-menu {
+    text-decoration: none;
+    color: black;
+}
+
+.header-search{
+    display: flex;
+    flex-direction: row;
+    gap: 180px;
+    width: 100%;
+    height: 40px;
+}
+
+.img-banner {
+    width: 100%;
+    height: 300px;
+    background-image: url(../static/img/rau-cu-qua-9679-1614753495.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.div-search {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-search {
+    width: 80%;
+    height: 88%;
+    font-size: medium;
+    padding-left: 15px;
+    border: 1px solid var(--color-main);
+}
+
+.btn-search {
+    width: 15%;
+    height: 90%;
+    background-color: var(--color-click);
+    border: none;
+    color: white;
+}
+
+.header-banner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.div-phone {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.div-hotro {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    justify-content: center;
+}
+.phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-main);
+    border-radius: 50%;
+    width: 40px;
+}
+
+.input,.input-search:focus {
+    outline: none;
+}
+
+.div-banner {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.sp-1 {
+    color: var(--color-click);
+    font-weight: bold;
+    letter-spacing: 0.3em;
+}
+
+.sp-2 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.link-buy {
+    text-decoration: none;
+    background-color: var(--color-click);
+    color: white;
+    width: 120px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.div-master-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.btn-xem-them {
+    width: 100%;
+    height: 25px;
+    border: none;
+    font-weight: bold;
+    text-decoration-line: underline;
+    color: var(--color-click);
+}
