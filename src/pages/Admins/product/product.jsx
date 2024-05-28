@@ -11,9 +11,12 @@ function Product() {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    const [rowEditing, setRowEditing] = useState();
+    const [IsInsert, setIsInsert] = useState(false);
 
     const openModal = () => {
         setIsOpen(true);
+        setIsInsert(true);
     };
 
     const closeModal = () => {
@@ -60,6 +63,13 @@ function Product() {
         },
     ];
 
+    const handleRowClicked = (row) => {   
+        console.log("row", row);    
+        setRowEditing(row);
+        openModal(true);   
+        setIsInsert(false);  
+      };
+
     return (
         <div className="main-product">
             <div className="div-main-item">
@@ -68,6 +78,8 @@ function Product() {
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
                     onInit = {onInit}
+                    row = {rowEditing}
+                    isInsert={IsInsert}
                 />
             </div>
             <div className="div-main-item">
@@ -75,7 +87,8 @@ function Product() {
                     customStyles={CustomStyles}
                     columns={columns}
                     data={data}
-                />
+                    onRowClicked={handleRowClicked}
+                />               
             </div>
         </div>
     )

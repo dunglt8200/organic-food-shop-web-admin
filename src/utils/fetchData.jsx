@@ -19,3 +19,13 @@ export const postData = async (url, data, options = {}) => {
         throw error;
     }
   };
+
+  export const putData = async (url, data, options = {}) => {
+    try {
+      const response = await axios.put(url, data, options);
+        return response.data;
+    } catch (error) {
+        console.error('Error posting data:', error);
+        throw error;
+    }
+  };

@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import "./product.style.css";
-import { postData } from '../../../utils/fetchData';
+import { postData, putData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
 import { ClipLoader } from 'react-spinners';
 
-const ModalProduct = ({ isOpen, onRequestClose, onInit }) => {
+const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState(null);
+  const [code, setCode] = useState('');
+  const [id, setId] = useState('');
   const [loading, setLoading] = useState(false);
-
+  
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -18,16 +20,39 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit }) => {
     }
   };
 
+  const clearInputValues = () => {
+    if (isInsert) {
+      setName('');
+      setPrice('');
+      setImage(null);
+      setCode('');
+      setId(null);
+    }
+    else {
+      setName(row?.Name);
+      setPrice(row?.Price);
+      setImage(row?.Img);
+      setCode(row?.Code);
+      setId(row?._id);
+    }
+  };
+
+  useEffect(() => {
+      clearInputValues();
+  }, [isInsert, isOpen]);
+
   const handleSubmit = () => {
     const payload = {
       Name: name,
       Img: image,
       Price: price,
+      Code: code,
+      Id: id
     };
 
     try {
       setLoading(true)
-      postData(ProductApi.Create, payload)
+      (isInsert ? postData(ProductApi.Create, payload) : putData(ProductApi.Update, payload))
       .then(data => console.log("data", data));     
     } catch (error) {
         console.error('There was an error creating the product!', error);
@@ -46,7 +71,6 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit }) => {
         </div>
     </>
 }
-
   return (
     <Modal
       isOpen={isOpen}
@@ -106,7 +130,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit }) => {
           </div>
         )}
         <div className='div-close'>
-          <button className='btn-modal' type="submit">Lưu</button>
+          <button className='btn-modal' type="submit">{isInsert ? 'Lưu' : 'Cập nhật'}</button>
           <button className='btn-modal' type="button" onClick={onRequestClose}>Đóng</button>
         </div>
       </form>
