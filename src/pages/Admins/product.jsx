@@ -1,42 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "./product.style.css";
 import DataTable from 'react-data-table-component';
 import { CustomStyles } from '../../utils/const';
+import { fetchData } from '../../utils/fetchData';
+import ProductApi from '../../api/product';
 
 function Product() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetchData(ProductApi.GetList)
+          .then(data => setData(data))
+          .catch(error => console.error('Error fetching data:', error));
+      }, []);
+
     const columns = [
         {
             name: 'Mã sản phẩm',
-            selector: row => row.id,
+            selector: row => row._id,
         },
         {
             name: 'Ảnh đại diện',
-            selector: row => row.img,
+             selector: row => row.Img,
         },
         {
             name: 'Tên sản phẩm',
-            selector: row => row.name,
+            selector: row => row.Name,
         },
         {
             name: 'Giá',
-            selector: row => row.price,
+            selector: row => row.Price,
         },
     ];
-
-    const data = [
-        {
-          id: 1,
-          img: '',
-          name: 'Cà chua',
-          price: "100000đ"
-      },
-      {
-          id: 2,
-          img: '',
-          name: 'Dưa hấu',
-          price: "239000đ"
-      },
-  ]
 
     return(
         <div className="main-product">
