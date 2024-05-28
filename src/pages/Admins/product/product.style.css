@@ -1,0 +1,77 @@
+.main-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.div-main-item {
+    width: 60%;
+}
+
+.btn-add {
+    width: 10%;
+    height: 30px;
+    background-color: var(--color-click);
+    color: white;
+    border: none;
+    size: 16px;
+}
+
+.form-input {
+    width: 800px;
+    height: 400px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.div-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+}
+
+.input-modal {
+    width: 80%;
+    border: 1px solid;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: large;
+}
+
+.input-modal:focus {
+    outline: none;
+}
+
+.div-input-img {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.div-close {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    bottom: 0px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.btn-modal {
+    width: 80px;
+    height: 30px;
+    background-color: var(--color-click);
+    color: white;
+    border: none;
+    size: 16px;
+}

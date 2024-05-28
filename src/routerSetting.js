@@ -2,7 +2,7 @@ import React from "react";
 import { ROUTERS } from "./utils/router";
 import {Routes, Route} from "react-router-dom";
 import MasterLayout from "./pages/common/masterLayout";
-import Product from "./pages/Admins/product";
+import Product from "./pages/Admins/product/product";
 
 const renderCompoent = () => {
     const routerPages = [

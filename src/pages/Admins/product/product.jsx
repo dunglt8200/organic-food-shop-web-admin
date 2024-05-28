@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import "./product.style.css";
 import DataTable from 'react-data-table-component';
-import { CustomStyles } from '../../utils/const';
-import { fetchData } from '../../utils/fetchData';
-import ProductApi from '../../api/product';
+import { CustomStyles } from '../../../utils/const';
+import { fetchData } from '../../../utils/fetchData';
+import ProductApi from '../../../api/product';
+import MyModal from './modal.product';
 
 function Product() {
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+ 
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -36,7 +47,11 @@ function Product() {
     return(
         <div className="main-product">
             <div className="div-main-item">
-                <button className="btn-add">Thêm mới</button>
+                <button onClick={openModal} className='btn-add'>Thêm mới</button>
+                <MyModal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                />
             </div>
             <div className="div-main-item">
                 <DataTable
