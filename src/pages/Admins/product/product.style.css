@@ -75,3 +75,10 @@
     border: none;
     size: 16px;
 }
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }

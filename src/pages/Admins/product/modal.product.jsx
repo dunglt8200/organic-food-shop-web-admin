@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import "./product.style.css";
+import { postData } from '../../../utils/fetchData';
+import ProductApi from '../../../api/product';
+import { ClipLoader } from 'react-spinners';
 
 const ModalProduct = ({ isOpen, onRequestClose }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -15,11 +19,32 @@ const ModalProduct = ({ isOpen, onRequestClose }) => {
   };
 
   const handleSubmit = () => {
-    console.log('Name:', name);
-    console.log('Price:', price);
-    console.log('Image:', image);
-    onRequestClose();
+    const payload = {
+      Name: name,
+      Img: image,
+      Price: price,
+    };
+
+    try {
+      setLoading(true)
+      postData(ProductApi.Create, payload)
+      .then(data => console.log("data", data));     
+    } catch (error) {
+        console.error('There was an error creating the product!', error);
+    }
+    finally {
+      setLoading(false);
+      onRequestClose();
+    }
   };
+
+  if (loading) {
+    return <>
+        <div className="loading-container">
+            <ClipLoader color="#0000ff" loading={loading} size={50} />;
+        </div>
+    </>
+}
 
   return (
     <Modal
@@ -80,7 +105,7 @@ const ModalProduct = ({ isOpen, onRequestClose }) => {
           </div>
         )}
         <div className='div-close'>
-          <button className='btn-modal' type="submit">Thêm</button>
+          <button className='btn-modal' type="submit">Lưu</button>
           <button className='btn-modal' type="button" onClick={onRequestClose}>Đóng</button>
         </div>
       </form>

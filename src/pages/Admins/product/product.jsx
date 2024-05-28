@@ -5,9 +5,12 @@ import { CustomStyles } from '../../../utils/const';
 import { fetchData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
 import MyModal from './modal.product';
+import { ClipLoader } from 'react-spinners';
 
 function Product() {
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
 
     const openModal = () => {
         setIsOpen(true);
@@ -16,14 +19,23 @@ function Product() {
     const closeModal = () => {
         setIsOpen(false);
     };
- 
-    const [data, setData] = useState([]);
 
     useEffect(() => {
         fetchData(ProductApi.GetList)
-          .then(data => setData(data))
-          .catch(error => console.error('Error fetching data:', error));
-      }, []);
+            .then(data => setData(data))
+            .catch(error => console.error('Error fetching data:', error))
+            .finally(() => {
+                setLoading(false)
+            })
+    }, []);
+
+    if (loading) {
+        return <>
+            <div className="loading-container">
+                <ClipLoader color="#0000ff" loading={loading} size={50} />;
+            </div>
+        </>
+    }
 
     const columns = [
         {
@@ -32,7 +44,7 @@ function Product() {
         },
         {
             name: 'Ảnh đại diện',
-             selector: row => row.Img,
+            selector: row => row.Img,
         },
         {
             name: 'Tên sản phẩm',
@@ -44,7 +56,7 @@ function Product() {
         },
     ];
 
-    return(
+    return (
         <div className="main-product">
             <div className="div-main-item">
                 <button onClick={openModal} className='btn-add'>Thêm mới</button>
@@ -55,11 +67,11 @@ function Product() {
             </div>
             <div className="div-main-item">
                 <DataTable
-                customStyles={CustomStyles}
-			    columns={columns}
-			    data={data}
-		    />
-            </div>     
+                    customStyles={CustomStyles}
+                    columns={columns}
+                    data={data}
+                />
+            </div>
         </div>
     )
 }
