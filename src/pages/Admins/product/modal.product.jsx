@@ -5,7 +5,7 @@ import { postData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
 import { ClipLoader } from 'react-spinners';
 
-const ModalProduct = ({ isOpen, onRequestClose }) => {
+const ModalProduct = ({ isOpen, onRequestClose, onInit }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState(null);
@@ -35,6 +35,7 @@ const ModalProduct = ({ isOpen, onRequestClose }) => {
     finally {
       setLoading(false);
       onRequestClose();
+      onInit();
     }
   };
 

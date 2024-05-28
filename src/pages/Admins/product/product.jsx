@@ -20,13 +20,17 @@ function Product() {
         setIsOpen(false);
     };
 
+    const onInit = async () => {
+        await fetchData(ProductApi.GetList)
+        .then(data => setData(data))
+        .catch(error => console.error('Error fetching data:', error))
+        .finally(() => {
+            setLoading(false)
+        })
+    }
+
     useEffect(() => {
-        fetchData(ProductApi.GetList)
-            .then(data => setData(data))
-            .catch(error => console.error('Error fetching data:', error))
-            .finally(() => {
-                setLoading(false)
-            })
+        onInit()
     }, []);
 
     if (loading) {
@@ -40,7 +44,7 @@ function Product() {
     const columns = [
         {
             name: 'Mã sản phẩm',
-            selector: row => row._id,
+            selector: row => row.Code,
         },
         {
             name: 'Ảnh đại diện',
@@ -63,6 +67,7 @@ function Product() {
                 <MyModal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
+                    onInit = {onInit}
                 />
             </div>
             <div className="div-main-item">
