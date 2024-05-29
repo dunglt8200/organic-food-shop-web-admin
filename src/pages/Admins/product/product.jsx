@@ -96,7 +96,7 @@ function Product() {
                     isInsert={IsInsert}
                 />
             </div>
-            <div className="div-main-item">
+            <div className="div-main-item-table">
                 <DataTable
                     customStyles={CustomStyles}
                     columns={columns}
@@ -104,6 +104,18 @@ function Product() {
                     onRowClicked={handleRowClicked}
                     selectableRows
                     onSelectedRowsChange={handleSelectedRowsChange}
+                    noDataComponent={
+                        <div>
+                            Chưa có sản phẩm
+                        </div>
+                    }
+                    pagination
+                    paginationPerPage={10}
+                    paginationComponentOptions={{
+                        rowsPerPageText: '',
+                        rangeSeparatorText: '/',
+                        noRowsPerPage: true
+                      }}
                 />               
             </div>
         </div>
