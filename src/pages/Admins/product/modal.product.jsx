@@ -43,7 +43,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       clearInputValues();
   }, [isInsert, isOpen]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const formData = new FormData();
         formData.append('Name', name);
         formData.append('Price', price);
@@ -53,8 +53,8 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
 
     try {
       setLoading(true)
-      (isInsert ? postData(ProductApi.Create, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
-      : putData(ProductApi.Update, formData, { headers: {'Content-Type': 'multipart/form-data'}}))
+      (isInsert ? await postData(ProductApi.Create, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
+      : await putData(ProductApi.Update, formData, { headers: {'Content-Type': 'multipart/form-data'}}))
       .then(data => console.log("data", data));
     } catch (error) {
         console.error('There was an error creating the product!', error);
