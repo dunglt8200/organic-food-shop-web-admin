@@ -12,11 +12,13 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   const [code, setCode] = useState('');
   const [id, setId] = useState('');
   const [loading, setLoading] = useState(false);
+  const [imageSave, setImageSave] = useState(null);
   
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setImage(file);
+      setImage(URL.createObjectURL(file));
+      setImageSave(file);
     }
   };
 
@@ -46,14 +48,14 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
         formData.append('Name', name);
         formData.append('Price', price);
         formData.append('Code', code);
-        formData.append('Img', image);
+        formData.append('Img', imageSave);
         formData.append('Id', id);
 
     try {
       setLoading(true)
       (isInsert ? postData(ProductApi.Create, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
-      : putData(ProductApi.Update, formData))
-      .then(data => console.log("data", data));     
+      : putData(ProductApi.Update, formData, { headers: {'Content-Type': 'multipart/form-data'}}))
+      .then(data => console.log("data", data));
     } catch (error) {
         console.error('There was an error creating the product!', error);
     }
