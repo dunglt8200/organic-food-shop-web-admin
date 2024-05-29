@@ -91,7 +91,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       <form className='form-input' onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
         <div className='div-input'>
           <label>
-            Name:
+            Tên sản phẩm:
           </label>
           <input
               className='input-modal'
@@ -104,7 +104,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
         </div>
         <div className='div-input'>
           <label>
-            Price:            
+            Giá:            
           </label>
           <input
               className='input-modal'

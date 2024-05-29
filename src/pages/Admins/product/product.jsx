@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./product.style.css";
 import DataTable from 'react-data-table-component';
 import { CustomStyles } from '../../../utils/const';
-import { fetchData } from '../../../utils/fetchData';
+import { fetchData, postData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
 import MyModal from './modal.product';
 import { ClipLoader } from 'react-spinners';
@@ -13,6 +13,7 @@ function Product() {
     const [data, setData] = useState([]);
     const [rowEditing, setRowEditing] = useState();
     const [IsInsert, setIsInsert] = useState(false);
+    const [selectedRows, setSelectedRows] = useState([]);
 
     const openModal = () => {
         setIsOpen(true);
@@ -70,10 +71,23 @@ function Product() {
         setIsInsert(false);  
       };
 
+    const handleSelectedRowsChange = (state) => {
+        setSelectedRows(state.selectedRows);
+    };
+    
+    const handleDelete = async () => {
+        const payloadDel = {
+            ids: selectedRows.map(row => row._id)
+        }
+        await postData(ProductApi.DeleteIds, payloadDel)
+        onInit()
+      };
+
     return (
         <div className="main-product">
             <div className="div-main-item">
                 <button onClick={openModal} className='btn-add'>Thêm mới</button>
+                {selectedRows.length > 0 && (<button className='btn-add' onClick={handleDelete}>Xóa</button>)}
                 <MyModal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
@@ -88,6 +102,8 @@ function Product() {
                     columns={columns}
                     data={data}
                     onRowClicked={handleRowClicked}
+                    selectableRows
+                    onSelectedRowsChange={handleSelectedRowsChange}
                 />               
             </div>
         </div>

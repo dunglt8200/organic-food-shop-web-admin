@@ -6,7 +6,6 @@ export const fetchData = async (url, options = {}) => {
         return response.data;
   } catch (error) {
         console.error('Error fetching data:', error);
-        throw error;
   }
 };
 
@@ -16,7 +15,6 @@ export const postData = async (url, data, options = {}) => {
         return response.data;
     } catch (error) {
         console.error('Error posting data:', error);
-        throw error;
     }
   };
 
@@ -26,6 +24,5 @@ export const postData = async (url, data, options = {}) => {
         return response.data;
     } catch (error) {
         console.error('Error posting data:', error);
-        throw error;
     }
   };

@@ -8,6 +8,8 @@
 
 .div-main-item {
     width: 60%;
+    gap: 5px;
+    display: flex;
 }
 
 .btn-add {
