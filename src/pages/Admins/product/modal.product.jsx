@@ -16,7 +16,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setImage(URL.createObjectURL(file));
+      setImage(file);
     }
   };
 
@@ -42,17 +42,17 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   }, [isInsert, isOpen]);
 
   const handleSubmit = () => {
-    const payload = {
-      Name: name,
-      Img: image,
-      Price: price,
-      Code: code,
-      Id: id
-    };
+    const formData = new FormData();
+        formData.append('Name', name);
+        formData.append('Price', price);
+        formData.append('Code', code);
+        formData.append('Img', image);
+        formData.append('Id', id);
 
     try {
       setLoading(true)
-      (isInsert ? postData(ProductApi.Create, payload) : putData(ProductApi.Update, payload))
+      (isInsert ? postData(ProductApi.Create, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
+      : putData(ProductApi.Update, formData))
       .then(data => console.log("data", data));     
     } catch (error) {
         console.error('There was an error creating the product!', error);
