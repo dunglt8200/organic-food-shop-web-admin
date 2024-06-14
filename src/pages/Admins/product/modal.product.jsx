@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import "./product.style.css";
-import { postData, putData } from '../../../utils/fetchData';
+import { fetchData, postData, putData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
+import ProductTypeApi from '../../../api/productType';
 import { ClipLoader } from 'react-spinners';
+import Select from 'react-select';
 
 const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   const [name, setName] = useState('');
@@ -13,7 +15,9 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   const [id, setId] = useState('');
   const [loading, setLoading] = useState(false);
   const [imageSave, setImageSave] = useState(null);
-  
+  const [options, setOptions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
+
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -29,6 +33,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setImage(null);
       setCode('');
       setId(null);
+      setSelectedOption(null);
     }
     else {
       setName(row?.Name);
@@ -36,11 +41,25 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setImage(row?.Img);
       setCode(row?.Code);
       setId(row?._id);
+      setSelectedOption(row?.ProductType);
     }
-  };
+  }
+
+const handleLoadListLoaiSP = async () => {
+  const response = await fetchData(ProductTypeApi.GetList);
+  if(response && response.length > 0) {
+    const fetchedOptions = response.map(option => ({
+      value: option.Code,
+      label: option.Name
+    }));
+    setOptions(fetchedOptions);
+  }
+  else {setOptions([]);}
+}
 
   useEffect(() => {
       clearInputValues();
+      handleLoadListLoaiSP();
   }, [isInsert, isOpen]);
 
   const handleSubmit = async () => {
@@ -50,9 +69,10 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
         formData.append('Code', code);
         formData.append('Img', imageSave);
         formData.append('Id', id);
+        formData.append('ProductType', selectedOption?.value);
 
     try {
-      setLoading(true)
+      setLoading(true);
       (isInsert ? await postData(ProductApi.Create, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
       : await putData(ProductApi.Update, formData, { headers: {'Content-Type': 'multipart/form-data'}}))
       .then(data => console.log("data", data));
@@ -73,6 +93,11 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
         </div>
     </>
 }
+
+const handleChangeSelect = (option) => {
+  setSelectedOption(option);
+};
+
   return (
     <Modal
       isOpen={isOpen}
@@ -91,6 +116,19 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
     >
       <h2>Thêm sản phẩm</h2>
       <form className='form-input' onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
+        <div className='div-input'>
+          <label>
+              Loại sản phẩm:
+          </label>
+          <Select
+              value={selectedOption}
+              onChange={handleChangeSelect}
+              options={options}
+              placeholder="Chọn loại sản phẩm"
+              required
+              className='select-type-sp'
+            />
+        </div>
         <div className='div-input'>
           <label>
             Tên sản phẩm:

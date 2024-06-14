@@ -63,6 +63,10 @@ function Product() {
             name: 'Giá',
             selector: row => row.Price,
         },
+        {
+            name: 'Loại sản phẩm',
+            selector: row => row.ProductType,
+        },
     ];
 
     const handleRowClicked = (row) => {   
