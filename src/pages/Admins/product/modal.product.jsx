@@ -41,7 +41,11 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setImage(row?.Img);
       setCode(row?.Code);
       setId(row?._id);
-      setSelectedOption(row?.ProductType);
+      setSelectedOption({
+        value: row?.ProductType,
+        label: row?.ProductTypeName
+      });
+      console.log("selectedOption", selectedOption);
     }
   }
 
