@@ -2,13 +2,13 @@ import { ROUTERS } from "./router";
 
 export const Menus = [
     {
-        name: "SẢN PHẨM",
-        path: ROUTERS.ADMIN.SANPHAM
+        name: "LOẠI SẢN PHẨM",
+        path: ROUTERS.ADMIN.LOAISANPHAM
     },
     {
-        name: "BÀI VIẾT",
-        path: ROUTERS.ADMIN.BAIVIET
-    },
+      name: "SẢN PHẨM",
+      path: ROUTERS.ADMIN.SANPHAM
+  }
 ];
 
 export const CustomStyles = {

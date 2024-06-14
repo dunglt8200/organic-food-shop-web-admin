@@ -1,6 +1,6 @@
 export const ROUTERS = {
     ADMIN: {
         SANPHAM: "san-pham",
-        BAIVIET: "bai-viet"
+        LOAISANPHAM: "loai-san-pham"
     }
 }

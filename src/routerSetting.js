@@ -3,6 +3,7 @@ import { ROUTERS } from "./utils/router";
 import {Routes, Route} from "react-router-dom";
 import MasterLayout from "./pages/common/masterLayout";
 import Product from "./pages/Admins/product/product";
+import ProductType from "./pages/Admins/productType/productType";
 
 const renderCompoent = () => {
     const routerPages = [
@@ -11,8 +12,8 @@ const renderCompoent = () => {
         compoent: <Product></Product>,
        },
        {
-        path: ROUTERS.ADMIN.BAIVIET,
-        compoent:<div></div>,
+        path: ROUTERS.ADMIN.LOAISANPHAM,
+        compoent:<ProductType></ProductType>,
        },
     ];
 
