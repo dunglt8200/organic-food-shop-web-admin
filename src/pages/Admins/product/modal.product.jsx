@@ -59,7 +59,8 @@ const handleLoadListLoaiSP = async () => {
 
   useEffect(() => {
       clearInputValues();
-      handleLoadListLoaiSP();
+      if(isOpen)
+        handleLoadListLoaiSP();
   }, [isInsert, isOpen]);
 
   const handleSubmit = async () => {

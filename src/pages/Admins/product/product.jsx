@@ -65,7 +65,7 @@ function Product() {
         },
         {
             name: 'Loại sản phẩm',
-            selector: row => row.ProductType,
+            selector: row => row.ProductTypeName,
         },
     ];
 
