@@ -4,7 +4,7 @@ import "./product.style.css";
 import { fetchData, postData, putData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
 import ProductTypeApi from '../../../api/productType';
-import { ClipLoader } from 'react-spinners';
+import { ClipLoader, HashLoader } from 'react-spinners';
 import Select from 'react-select';
 
 const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
@@ -94,7 +94,7 @@ const handleLoadListLoaiSP = async () => {
   if (loading) {
     return <>
         <div className="loading-container">
-            <ClipLoader color="#0000ff" loading={loading} size={50} />;
+            <HashLoader color="#0000ff" loading={loading} size={50} />;
         </div>
     </>
 }

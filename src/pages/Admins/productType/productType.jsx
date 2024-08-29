@@ -5,7 +5,7 @@ import { CustomStyles } from '../../../utils/const';
 import { fetchData, postData } from '../../../utils/fetchData';
 import ProductTypeApi from '../../../api/productType';
 import MyModal from './modal.productType';
-import { ClipLoader } from 'react-spinners';
+import { ClipLoader, HashLoader } from 'react-spinners';
 
 function ProductType() {
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -40,7 +40,7 @@ function ProductType() {
     if (loading) {
         return <>
             <div className="loading-container">
-                <ClipLoader color="#0000ff" loading={loading} size={50} />;
+                <HashLoader color="#0000ff" loading={loading} size={50} />;
             </div>
         </>
     }
