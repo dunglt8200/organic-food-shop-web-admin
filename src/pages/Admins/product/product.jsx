@@ -52,7 +52,13 @@ function Product() {
         },
         {
             name: 'Ảnh đại diện',
-            cell: row => <img src={row?.Img} alt={row.name} style={{ width: '50px', borderRadius: '50%' }} />,
+            cell: row => (
+                <img 
+                    src={row?.Img || ''} 
+                    alt={row.name || ''} 
+                    style={{ width: '50px', borderRadius: '50%' }} 
+                />
+            ),
             selector: row => row.Img,
         },
         {

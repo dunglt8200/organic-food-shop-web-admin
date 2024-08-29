@@ -171,7 +171,7 @@ const handleChangeSelect = (option) => {
         </div>
         {image && (
           <div>
-            <img src={image} alt="Selected" width="100" />
+            <img src={image} alt="" width="100" />
           </div>
         )}
         <div className='div-close'>
