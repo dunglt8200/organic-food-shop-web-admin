@@ -21,9 +21,8 @@
   },
   "scripts": {
     "start": "set PORT=5000 && react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "env-cmd -e development set PORT=5000 && react-scripts start",
+    "build": "env-cmd -e production react-scripts start"
   },
   "eslintConfig": {
     "extends": [
@@ -42,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }
