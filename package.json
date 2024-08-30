@@ -24,12 +24,6 @@
     "dev": "env-cmd -e development set PORT=5000 && react-scripts start",
     "build": "env-cmd -e production react-scripts start"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
