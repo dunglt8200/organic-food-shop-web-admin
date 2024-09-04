@@ -9,8 +9,16 @@ import { BsCart } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import "../../utils/const";
 import { Menus } from "../../utils/const";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+    const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("/login");
+  };
+
     return(
         <div>
             {/* header top */}
@@ -46,7 +54,7 @@ function Header() {
                         </li>
                         <li className="li-header-item">
                             <CiUser />
-                            <span>Đăng nhập</span>
+                            <button className="btn-logout" onClick={handleLogout}>Đăng xuất</button>
                         </li>
                     </ul>
                 </div>

@@ -5,6 +5,8 @@ import MasterLayout from "./pages/common/masterLayout";
 import Product from "./pages/Admins/product/product";
 import ProductType from "./pages/Admins/productType/productType";
 import Home from "./pages/Admins/home/home";
+import PrivateRoute from "./utils/PrivateRoute";
+import Login from "./pages/Admins/login/login";
 
 const renderCompoent = () => {
     const routerPages = [
@@ -25,10 +27,19 @@ const renderCompoent = () => {
    return(
     <MasterLayout>
         <Routes>
-        { routerPages.map((x, key) => (
-            (<Route key={key} path={x.path} element={x.compoent}></Route>)
+        { 
+            routerPages.map((x, key) => (
+                (                         
+                    <Route key={key} path={x.path} element={
+                        <PrivateRoute>
+                        {x.compoent}
+                        </PrivateRoute>
+                    }></Route>
+                )
+            
         ))}
-        </Routes>
+        <Route path="/login" element={<Login />} />
+        </Routes>     
     </MasterLayout>
    );
 };
