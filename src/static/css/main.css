@@ -309,3 +309,9 @@
     text-decoration-line: underline;
     color: var(--color-click);
 }
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}

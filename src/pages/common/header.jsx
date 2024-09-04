@@ -54,7 +54,9 @@ function Header() {
             {/* header bottom */}
             <div className="header-bottom">                
                 <div className="header-bottom-item">
-                    <span className="logo">TD ORGANIC FOOD ADMIN</span>
+                    <a href="/" class="logo-link">
+                        <span class="logo">TD ORGANIC FOOD ADMIN</span>
+                    </a>
                 </div>
                 <div className="header-bottom-item-center">
                     <ul className="ul-header-item-menu">

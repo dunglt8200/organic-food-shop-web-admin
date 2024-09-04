@@ -4,16 +4,21 @@ import {Routes, Route} from "react-router-dom";
 import MasterLayout from "./pages/common/masterLayout";
 import Product from "./pages/Admins/product/product";
 import ProductType from "./pages/Admins/productType/productType";
+import Home from "./pages/Admins/home/home";
 
 const renderCompoent = () => {
     const routerPages = [
        {
-        path: ROUTERS.ADMIN.SANPHAM,
-        compoent: <Product></Product>,
+        path: ROUTERS.ADMIN.HOME,
+        compoent: <Home></Home>,
        },
        {
         path: ROUTERS.ADMIN.LOAISANPHAM,
         compoent:<ProductType></ProductType>,
+       },
+       {
+        path: ROUTERS.ADMIN.SANPHAM,
+        compoent: <Product></Product>,
        },
     ];
 

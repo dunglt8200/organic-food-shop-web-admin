@@ -1,0 +1,13 @@
+.div-home {
+    width: 80%;
+    height: 500px;
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    background-color: #f5f1f1;
+}
+
+.div-home img{
+    max-width: 100%;
+    max-height: 100%;
+}
