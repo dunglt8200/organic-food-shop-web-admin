@@ -11,6 +11,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     setLoginErrorMess("");
+
     // Kiểm tra nếu trường username trống
     if (username.trim() === "") {
       setLoginErrorMess("Vui lòng nhập đầy đủ thông tin");
@@ -21,18 +22,17 @@ const Login = () => {
     }
 
     // Nếu không có lỗi, tiếp tục xử lý đăng nhập
-    if (username === "admin" && password === "password") {
-      localStorage.setItem("auth", "true");
-      navigate("/");
-    }
-    else {
-      setLoginErrorMess("Tài khoản hoặc mật khẩu không chính xác");
+    if(loginErrorMess.length === 0)
+    {
+      if (username === "admin" && password === "Admin@123") {
+        localStorage.setItem("auth", "true");
+        navigate("/");
+      }
+      else {
+        setLoginErrorMess("Tài khoản hoặc mật khẩu không chính xác");
+      }
     }
   };
-
-  console.log("username", username)
-  console.log("password", password)
-  console.log("loginErrorMess", loginErrorMess)
 
   return (
     <div className="login-main">
