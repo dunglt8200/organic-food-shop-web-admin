@@ -96,3 +96,24 @@
 .select-type-sp {
     width: 83% !important;
 }
+
+.div-empty-data {
+    width: 30%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.div-empty-data img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.div-empty-data span {
+    font-size: 20px;
+    font-style: italic; 
+}

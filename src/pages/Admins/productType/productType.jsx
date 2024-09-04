@@ -5,7 +5,8 @@ import { CustomStyles } from '../../../utils/const';
 import { fetchData, postData } from '../../../utils/fetchData';
 import ProductTypeApi from '../../../api/productType';
 import MyModal from './modal.productType';
-import { ClipLoader, HashLoader } from 'react-spinners';
+import { HashLoader } from 'react-spinners';
+import EmptyDataIco from '../../../static/img/folderEmpty.png';
 
 function ProductType() {
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -40,7 +41,7 @@ function ProductType() {
     if (loading) {
         return <>
             <div className="loading-container">
-                <HashLoader color="#0000ff" loading={loading} size={50} />;
+                <HashLoader color="#339933" loading={loading} size={50} />;
             </div>
         </>
     }
@@ -97,9 +98,10 @@ function ProductType() {
                     selectableRows
                     onSelectedRowsChange={handleSelectedRowsChange}
                     noDataComponent={
-                        <div>
-                            Chưa có loại sản phẩm
-                        </div>
+                        <div className='div-empty-data'>
+                        <img src={EmptyDataIco} alt="Không có dữ liệu" />
+                        <span>Không có dữ liệu</span>
+                    </div>
                     }
                     pagination
                     paginationPerPage={10}

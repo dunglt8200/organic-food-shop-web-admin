@@ -15,7 +15,7 @@ export const CustomStyles = {
   table: {
     style: {
       width: '100%',
-      height: 'auto'
+      height: '400px'
     },
   },
   header: {
