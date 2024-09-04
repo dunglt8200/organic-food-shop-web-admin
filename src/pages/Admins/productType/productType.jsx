@@ -5,8 +5,8 @@ import { CustomStyles } from '../../../utils/const';
 import { fetchData, postData } from '../../../utils/fetchData';
 import ProductTypeApi from '../../../api/productType';
 import MyModal from './modal.productType';
-import { HashLoader } from 'react-spinners';
 import EmptyDataIco from '../../../static/img/folderEmpty.png';
+import Loading from '../../common/loading';
 
 function ProductType() {
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -40,9 +40,7 @@ function ProductType() {
 
     if (loading) {
         return <>
-            <div className="loading-container">
-                <HashLoader color="#339933" loading={loading} size={50} />;
-            </div>
+            <Loading loading={loading} />
         </>
     }
 
