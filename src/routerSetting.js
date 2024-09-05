@@ -27,6 +27,7 @@ const renderCompoent = () => {
    return(
     <MasterLayout>
         <Routes>
+        <Route path="/login" element={<Login />} />
         { 
             routerPages.map((x, key) => (
                 (                         
@@ -37,8 +38,7 @@ const renderCompoent = () => {
                     }></Route>
                 )
             
-        ))}
-        <Route path="/login" element={<Login />} />
+        ))}       
         </Routes>     
     </MasterLayout>
    );
