@@ -19,7 +19,7 @@ function Footer() {
             </li>
          </ul>
       </div>
-      <div className="div-footer">
+      {/* <div className="div-footer">
             <ul className="ul-footer">
                <li className="li-footer-item style-text">
                   <span>Cửa Hàng</span>
@@ -47,7 +47,7 @@ function Footer() {
                   <span>Thông tin ưa thích</span>
                </li>
             </ul>
-      </div>
+      </div> */}
       <div className="div-footer">
             <ul className="ul-footer">
                <li className="li-footer-item style-text">
