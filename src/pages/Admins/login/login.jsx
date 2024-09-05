@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.style.css";
+import UserApi from '../../../api/user';
+import { postData } from "../../../utils/fetchData";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -8,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [loginErrorMess, setLoginErrorMess] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoginErrorMess("");
 
@@ -24,7 +26,12 @@ const Login = () => {
     // Nếu không có lỗi, tiếp tục xử lý đăng nhập
     if(loginErrorMess.length === 0)
     {
-      if (username === "admin" && password === "Admin@123") {
+      const payLoad = {
+        UserName: username,
+        Password: password
+      }
+      const isChekUser = await postData(UserApi.Login, payLoad);
+      if (isChekUser == true) {
         localStorage.setItem("auth", "true");
         navigate("/");
       }
