@@ -85,7 +85,7 @@ function Header() {
                     </ul>
                 </div>
                 {/* cart */}
-                <div className="header-bottom-item justify-content-right">
+                {/* <div className="header-bottom-item justify-content-right">
                     <ul className="ul-header-item">
                         <li className="li-header-item">
                             <span>{convertIntToVND(1001000)}</span>
@@ -94,7 +94,7 @@ function Header() {
                         <BsCart />
                         </li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </div>
     )

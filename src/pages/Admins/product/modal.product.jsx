@@ -4,7 +4,7 @@ import "./product.style.css";
 import { fetchData, postData, putData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
 import ProductTypeApi from '../../../api/productType';
-import { ClipLoader, HashLoader } from 'react-spinners';
+import { HashLoader } from 'react-spinners';
 import Select from 'react-select';
 
 const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
@@ -119,7 +119,7 @@ const handleChangeSelect = (option) => {
         },
       }}
     >
-      <h2>Thêm sản phẩm</h2>
+      <h2>{isInsert ? 'Thêm sản phẩm' : 'Cập nhật sản phẩm'}</h2>
       <form className='form-input' onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
         <div className='div-input'>
           <label>

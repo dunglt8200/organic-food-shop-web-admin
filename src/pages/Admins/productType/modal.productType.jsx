@@ -72,7 +72,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
         },
       }}
     >
-      <h2>Thêm loại sản phẩm</h2>
+      <h2>{isInsert ? 'Thêm loại sản phẩm' : 'Cập nhật loại sản phẩm'}</h2>
       <form className='form-input-typeSP' onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
         <div className='div-input'>
           <label>
