@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import "./productType.style.css";
 import { postData, putData } from '../../../utils/fetchData';
 import ProductTypeApi from '../../../api/productType';
-import { ClipLoader } from 'react-spinners';
+import Loading from '../../common/loading';
 
 const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   const [name, setName] = useState('');
@@ -52,7 +52,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   if (loading) {
     return <>
         <div className="loading-container">
-            <ClipLoader color="#0000ff" loading={loading} size={50} />;
+          <Loading loading={loading} />
         </div>
     </>
 }
@@ -69,10 +69,14 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
+          padding: 0,
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'
         },
       }}
     >
-      <h2>{isInsert ? 'Thêm loại sản phẩm' : 'Cập nhật loại sản phẩm'}</h2>
+      <div className='div-title-modal'>
+        <h2>{isInsert ? 'Thêm loại sản phẩm' : 'Cập nhật loại sản phẩm'}</h2>
+      </div>     
       <form className='form-input-typeSP' onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
         <div className='div-input'>
           <label>

@@ -4,7 +4,7 @@ import "./product.style.css";
 import { fetchData, postData, putData } from '../../../utils/fetchData';
 import ProductApi from '../../../api/product';
 import ProductTypeApi from '../../../api/productType';
-import { HashLoader } from 'react-spinners';
+import Loading from '../../common/loading';
 import Select from 'react-select';
 
 const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
@@ -94,7 +94,7 @@ const handleLoadListLoaiSP = async () => {
   if (loading) {
     return <>
         <div className="loading-container">
-            <HashLoader color="#0000ff" loading={loading} size={50} />;
+          <Loading loading={loading} />
         </div>
     </>
 }
@@ -116,10 +116,14 @@ const handleChangeSelect = (option) => {
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
+          padding: 0,
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)'
         },
       }}
     >
-      <h2>{isInsert ? 'Thêm sản phẩm' : 'Cập nhật sản phẩm'}</h2>
+      <div className='div-title-modal'>
+        <h2>{isInsert ? 'Thêm sản phẩm' : 'Cập nhật sản phẩm'}</h2>
+      </div>  
       <form className='form-input' onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
         <div className='div-input'>
           <label>
