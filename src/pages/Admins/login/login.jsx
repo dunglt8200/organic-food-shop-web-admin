@@ -35,7 +35,6 @@ const Login = () => {
       if (data && data.isCheckLogin == true) {       
         localStorage.setItem('token', data.token);
         localStorage.setItem('refreshtoken', data.refreshtoken);
-        localStorage.setItem("auth", "true");
         navigate("/");
       }
       else {
