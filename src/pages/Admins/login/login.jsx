@@ -30,8 +30,10 @@ const Login = () => {
         UserName: username,
         Password: password
       }
-      const isChekUser = await postData(UserApi.Login, payLoad);
-      if (isChekUser == true) {
+      const data = await postData(UserApi.Login, payLoad);
+      console.log("data", data)
+      if (data && data.isCheckLogin == true) {       
+        localStorage.setItem('token', data.token);
         localStorage.setItem("auth", "true");
         navigate("/");
       }

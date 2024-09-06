@@ -2,6 +2,13 @@ import axios from 'axios';
 
 export const fetchData = async (url, options = {}) => {
   try {
+    const authToken = localStorage.getItem('token');
+    if (authToken) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${authToken}`,
+      };
+    }
     const response = await axios.get(url, options);
         return response.data;
   } catch (error) {
@@ -11,6 +18,13 @@ export const fetchData = async (url, options = {}) => {
 
 export const postData = async (url, data, options = {}) => {
     try {
+      const authToken = localStorage.getItem('token');
+    if (authToken) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${authToken}`,
+      };
+    }
       const response = await axios.post(url, data, options);
         return response.data;
     } catch (error) {
@@ -20,6 +34,13 @@ export const postData = async (url, data, options = {}) => {
 
   export const putData = async (url, data, options = {}) => {
     try {
+      const authToken = localStorage.getItem('token');
+    if (authToken) {
+      options.headers = {
+        ...options.headers,
+        Authorization: `Bearer ${authToken}`,
+      };
+    }
       const response = await axios.put(url, data, options);
         return response.data;
     } catch (error) {

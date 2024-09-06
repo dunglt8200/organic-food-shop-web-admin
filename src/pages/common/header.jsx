@@ -16,6 +16,7 @@ function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem("auth");
+    localStorage.removeItem("token");
     navigate("/login");
   };
 
@@ -62,8 +63,8 @@ function Header() {
             {/* header bottom */}
             <div className="header-bottom">                
                 <div className="header-bottom-item">
-                    <a href="/" class="logo-link">
-                        <span class="logo">TD ORGANIC FOOD ADMIN</span>
+                    <a href="/" className="logo-link">
+                        <span className="logo">TD ORGANIC FOOD ADMIN</span>
                     </a>
                 </div>
                 <div className="header-bottom-item-center">
