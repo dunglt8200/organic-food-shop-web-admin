@@ -1,4 +1,4 @@
-import axios from 'axios';
+import callAPI from '../auth/callAPI';
 
 export const fetchData = async (url, options = {}) => {
   try {
@@ -9,7 +9,7 @@ export const fetchData = async (url, options = {}) => {
         Authorization: `Bearer ${authToken}`,
       };
     }
-    const response = await axios.get(url, options);
+    const response = await callAPI.get(url, options);
         return response.data;
   } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,7 +25,7 @@ export const postData = async (url, data, options = {}) => {
         Authorization: `Bearer ${authToken}`,
       };
     }
-      const response = await axios.post(url, data, options);
+      const response = await callAPI.post(url, data, options);
         return response.data;
     } catch (error) {
         console.error('Error posting data:', error);
@@ -41,7 +41,7 @@ export const postData = async (url, data, options = {}) => {
         Authorization: `Bearer ${authToken}`,
       };
     }
-      const response = await axios.put(url, data, options);
+      const response = await callAPI.put(url, data, options);
         return response.data;
     } catch (error) {
         console.error('Error posting data:', error);

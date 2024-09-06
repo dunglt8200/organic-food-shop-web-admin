@@ -45,7 +45,6 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
         value: row?.ProductType,
         label: row?.ProductTypeName
       });
-      console.log("selectedOption", selectedOption);
     }
   }
 
