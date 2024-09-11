@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./header";
 import Footer from "./footer";
 import { useLocation } from "react-router-dom";
+import Menu from "./menu";
 
 function MasterLayout({children, ...props}) {
     const location = useLocation();
@@ -10,7 +11,10 @@ function MasterLayout({children, ...props}) {
     return(
         <div className="div-master-layout" { ...props}>
             {!isLoginPage && <Header />}
-            {children}
+            <div className="div-master-main">
+                <Menu />
+                {children}
+            </div>    
             {!isLoginPage && <Footer />}
         </div>   
     )

@@ -67,7 +67,7 @@ function Header() {
                         <span className="logo">TD ORGANIC FOOD ADMIN</span>
                     </a>
                 </div>
-                <div className="header-bottom-item-center">
+                {/* <div className="header-bottom-item-center">
                     <ul className="ul-header-item-menu">
                        {Menus.map((menu, key)=> (
                         <li className="li-header-item" key={key}>
@@ -84,7 +84,7 @@ function Header() {
                         </li>
                        ))}
                     </ul>
-                </div>
+                </div> */}
                 {/* cart */}
                 {/* <div className="header-bottom-item justify-content-right">
                     <ul className="ul-header-item">

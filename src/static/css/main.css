@@ -326,3 +326,8 @@
 .btn-logout {
     border: none;
 }
+
+.div-master-main {
+    display: flex;
+    flex-direction: row;
+}
