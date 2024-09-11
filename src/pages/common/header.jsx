@@ -7,6 +7,7 @@ import { convertIntToVND } from "../../utils/util";
 import { RiMailSendLine } from "react-icons/ri";
 import "../../utils/const";
 import { useNavigate } from "react-router-dom";
+import LogoApp from "../../static/img/logo-app.png";
 
 function Header() {
     const navigate = useNavigate();
@@ -60,7 +61,7 @@ function Header() {
             {/* header bottom */}
             <div className="header-bottom">                
                 <div className="header-bottom-item">  
-                    <img src="" alt="" />                
+                    <img className="img-logo" src={LogoApp} alt="" />                
                     <a href="/" className="logo-link">
                         <span className="logo">TD ORGANIC FOOD ADMIN</span>
                     </a>
