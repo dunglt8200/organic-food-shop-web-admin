@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const Menu = () => {
     return (
-       <div className="header-bottom-item-center">
-            <ul className="ul-header-item-menu">
+       <div className="menu-main">
+            <ul className="ul-menu-main">
                 {Menus.map((menu, key)=> (
-                    <li className="li-header-item" key={key}>
-                        <Link className="link-menu" to={menu.path}>{menu.name}</Link>
+                    <li className="li-menu-main" key={key}>
+                        <Link className="link-menu-main" to={menu.path}>{menu.name}</Link>
                             {menu?.child?.length && (
                                 <ul className="ul-dropdown-list">
                                     {menu.child.map((child, keyChild) => (

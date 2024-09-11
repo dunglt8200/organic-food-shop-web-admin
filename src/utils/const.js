@@ -2,6 +2,10 @@ import { ROUTERS } from "./router";
 
 export const Menus = [
     {
+    name: "TRANG CHỦ",
+    path: ROUTERS.ADMIN.HOME
+    },
+    {
         name: "LOẠI SẢN PHẨM",
         path: ROUTERS.ADMIN.LOAISANPHAM
     },
