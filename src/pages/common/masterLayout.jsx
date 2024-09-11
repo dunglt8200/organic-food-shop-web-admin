@@ -9,10 +9,10 @@ function MasterLayout({children, ...props}) {
     const isLoginPage = location.pathname === "/login";
 
     return(
-        <div className="div-master-layout" { ...props}>
+        <div className="div-master-layout" { ...props}>           
             {!isLoginPage && <Header />}
-            <div className="div-master-main">
-                <Menu />
+            <div className={!isLoginPage ? "div-master-main": ""}>
+                {!isLoginPage && <Menu />}
                 {children}
             </div>    
             {!isLoginPage && <Footer />}
