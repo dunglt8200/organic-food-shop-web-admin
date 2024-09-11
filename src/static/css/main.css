@@ -361,10 +361,21 @@
     height: 10%;
 }
 
+.li-menu-main.active {
+    background-color: #a1a1a1;
+}
+
+.li-menu-main:focus {
+    background-color: #a1a1a1;
+}
+
 .link-menu-main {
     color: var(--color-click);
     font-weight: bold;
     text-decoration: none;
     align-items: center;
     display: flex;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
 }

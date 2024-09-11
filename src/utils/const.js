@@ -1,17 +1,21 @@
 import { ROUTERS } from "./router";
+import { FcHome, FcList, FcAcceptDatabase } from "react-icons/fc";
 
 export const Menus = [
     {
     name: "TRANG CHỦ",
-    path: ROUTERS.ADMIN.HOME
+    path: ROUTERS.ADMIN.HOME,
+    icon: <FcHome />
     },
     {
         name: "LOẠI SẢN PHẨM",
-        path: ROUTERS.ADMIN.LOAISANPHAM
+        path: ROUTERS.ADMIN.LOAISANPHAM,
+        icon: <FcList />
     },
     {
       name: "SẢN PHẨM",
-      path: ROUTERS.ADMIN.SANPHAM
+      path: ROUTERS.ADMIN.SANPHAM,
+      icon: <FcAcceptDatabase />
   }
 ];
 
