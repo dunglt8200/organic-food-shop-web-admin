@@ -59,7 +59,8 @@ function Header() {
             </div>
             {/* header bottom */}
             <div className="header-bottom">                
-                <div className="header-bottom-item">                  
+                <div className="header-bottom-item">  
+                    <img src="" alt="" />                
                     <a href="/" className="logo-link">
                         <span className="logo">TD ORGANIC FOOD ADMIN</span>
                     </a>

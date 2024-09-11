@@ -349,6 +349,7 @@
     flex-direction: column;
     width: 100%;
     gap: 10px;
+    border: 1px solid var(--color-click);
 }
 
 .li-menu-main {

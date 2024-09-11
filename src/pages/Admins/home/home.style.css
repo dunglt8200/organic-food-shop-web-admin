@@ -1,3 +1,5 @@
+@import "/src/static/css/common.css";
+
 .div-home {
     width: 100%;
     height: 100%;
@@ -17,4 +19,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.div-chart p {
+    font-size: large;
 }
