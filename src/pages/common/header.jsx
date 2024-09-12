@@ -60,11 +60,15 @@ function Header() {
             </div>
             {/* header bottom */}
             <div className="header-bottom">                
-                <div className="header-bottom-item">  
-                    <img className="img-logo" src={LogoApp} alt="" />                
-                    <a href="/" className="logo-link">
-                        <span className="logo">TD ORGANIC FOOD ADMIN</span>
-                    </a>
+                <div className="header-bottom-item">
+                    <div className="div-img-logo">
+                        <img className="img-logo" src={LogoApp} alt="" />   
+                    </div>
+                    <div className="div-logo-link">
+                        <a href="/" className="logo-link">
+                            <span className="logo">TD ORGANIC FOOD ADMIN</span>
+                        </a>
+                    </div>                 
                 </div>
             </div>
         </div>
