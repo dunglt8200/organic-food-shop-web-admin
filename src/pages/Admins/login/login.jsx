@@ -12,27 +12,24 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoginErrorMess("");
+    let messError = "";
 
     // Kiểm tra nếu trường username trống
     if (username.trim() === "") {
-      setLoginErrorMess("Vui lòng nhập đầy đủ thông tin");
+      messError = "Vui lòng nhập đầy đủ thông tin ";
     }
     // Kiểm tra nếu trường password trống
     if (password.trim() === "") {
-      setLoginErrorMess("Vui lòng nhập đầy đủ thông tin");
+      messError = "Vui lòng nhập đầy đủ thông tin";
     }
-
     // Nếu không có lỗi, tiếp tục xử lý đăng nhập
-    if(loginErrorMess.length === 0)
-    {
+    if (messError.length === 0) {
       const payLoad = {
         UserName: username,
         Password: password
       }
       const data = await postData(UserApi.Login, payLoad);
-      console.log("data", data)
-      if (data && data.isCheckLogin == true) {       
+      if (data && data.isCheckLogin == true) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('refreshtoken', data.refreshtoken);
         navigate("/");
@@ -41,13 +38,16 @@ const Login = () => {
         setLoginErrorMess("Tài khoản hoặc mật khẩu không chính xác");
       }
     }
+    else
+    setLoginErrorMess(messError)
+
   };
 
   return (
     <div className="login-main">
       <div className="login-page">
         <div className="form">
-          <span>Đăng Nhập</span> 
+          <span>Đăng Nhập</span>
           <form className="login-form">
             <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -55,8 +55,8 @@ const Login = () => {
             <button onClick={handleLogin}>Đăng Nhập</button>
           </form>
         </div>
-     </div>
-    </div> 
+      </div>
+    </div>
   );
 };
 
