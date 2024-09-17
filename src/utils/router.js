@@ -3,5 +3,6 @@ export const ROUTERS = {
         HOME: "",
         LOAISANPHAM: "loai-san-pham",
         SANPHAM: "san-pham",
+        TINTUC: "tin-tuc",
     }
 }

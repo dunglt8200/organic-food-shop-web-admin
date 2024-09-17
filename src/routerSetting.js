@@ -7,6 +7,7 @@ import ProductType from "./pages/Admins/productType/productType";
 import Home from "./pages/Admins/home/home";
 import PrivateRoute from "./utils/PrivateRoute";
 import Login from "./pages/Admins/login/login";
+import New from "./pages/Admins/new/new";
 
 const renderCompoent = () => {
     const routerPages = [
@@ -21,6 +22,10 @@ const renderCompoent = () => {
        {
         path: ROUTERS.ADMIN.SANPHAM,
         compoent: <Product></Product>,
+       },
+       {
+        path: ROUTERS.ADMIN.TINTUC,
+        compoent: <New></New>,
        },
     ];
 

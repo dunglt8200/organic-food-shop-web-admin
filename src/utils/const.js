@@ -1,5 +1,5 @@
 import { ROUTERS } from "./router";
-import { FcHome, FcList, FcAcceptDatabase } from "react-icons/fc";
+import { FcHome, FcList, FcAcceptDatabase, FcAdvertising } from "react-icons/fc";
 
 export const Menus = [
     {
@@ -16,7 +16,12 @@ export const Menus = [
       name: "SẢN PHẨM",
       path: ROUTERS.ADMIN.SANPHAM,
       icon: <FcAcceptDatabase />
-  }
+    },
+    {
+      name: "TIN TỨC",
+      path: ROUTERS.ADMIN.TINTUC,
+      icon: <FcAdvertising />
+    },
 ];
 
 export const CustomStyles = {
