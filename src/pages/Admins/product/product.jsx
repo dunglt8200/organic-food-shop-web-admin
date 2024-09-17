@@ -78,8 +78,7 @@ function Product() {
         },
     ];
 
-    const handleRowClicked = (row) => {   
-        console.log("row", row);    
+    const handleRowClicked = (row) => {    
         setRowEditing(row);
         openModal(true);   
         setIsInsert(false);  

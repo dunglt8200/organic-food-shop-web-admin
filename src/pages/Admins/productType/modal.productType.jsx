@@ -37,8 +37,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
 
     try {
       setLoading(true);
-      (isInsert ? await postData(ProductTypeApi.Create, payLoad) : await putData(ProductTypeApi.Update, payLoad))
-      .then(data => console.log("data", data));
+      (isInsert ? await postData(ProductTypeApi.Create, payLoad) : await putData(ProductTypeApi.Update, payLoad));
     } catch (error) {
         console.error('There was an error creating the product!', error);
     }

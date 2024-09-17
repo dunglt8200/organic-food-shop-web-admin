@@ -13,7 +13,6 @@ callAPI.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
-    console.log("interceptor cho request")
     return config;
   },
   error => Promise.reject(error)
@@ -37,7 +36,6 @@ callAPI.interceptors.response.use(
         
         // Lưu token mới vào localStorage
         localStorage.setItem('token', data.accessToken);
-        console.log("interceptor cho response")
         // Cập nhật header Authorization với token mới
         callAPI.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
         
