@@ -17,7 +17,7 @@ export const shortenText = (text, maxLength) => {
 export const generateColors = (count) => {
   const colors = [];
   for (let i = 0; i < count; i++) {
-    const color = `rgba(${i * 360 / count}, ${(i+1) * 99}, ${i + 132}, 0.2)`;
+    const color = `rgba(${i * 360 / count}, ${(i + 1 * 100)}, ${i + 132}, 0.2)`;
     colors.push(color);
   }
   return colors;

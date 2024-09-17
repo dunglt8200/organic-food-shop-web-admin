@@ -125,7 +125,7 @@ function Product() {
                         </div>
                     }
                     pagination
-                    paginationPerPage={10}
+                    paginationPerPage={7}
                     paginationComponentOptions={{
                         rowsPerPageText: '',
                         rangeSeparatorText: '/',
