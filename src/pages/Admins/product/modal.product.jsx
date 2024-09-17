@@ -13,6 +13,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   const [image, setImage] = useState(null);
   const [code, setCode] = useState('');
   const [id, setId] = useState('');
+  const [quantity, setQuantity] = useState(0);
   const [loading, setLoading] = useState(false);
   const [imageSave, setImageSave] = useState(null);
   const [options, setOptions] = useState([]);
@@ -34,6 +35,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setCode('');
       setId(null);
       setSelectedOption(null);
+      setQuantity('');
     }
     else {
       setName(row?.Name);
@@ -41,6 +43,7 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setImage(row?.Img);
       setCode(row?.Code);
       setId(row?._id);
+      setQuantity(row?.Quantity);
       setSelectedOption({
         value: row?.ProductType,
         label: row?.ProductTypeName
@@ -74,12 +77,13 @@ const handleLoadListLoaiSP = async () => {
         formData.append('Img', imageSave);
         formData.append('Id', id);
         formData.append('ProductType', selectedOption?.value);
+        formData.append('Quantity', quantity);
 
     try {
       setLoading(true);
-      (isInsert ? await postData(ProductApi.Create, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
-      : await putData(ProductApi.Update, formData, { headers: {'Content-Type': 'multipart/form-data'}}))
-      .then(data => console.log("data", data));
+      const apiUrl = isInsert ? ProductApi.Create : ProductApi.Update;
+      (isInsert ? await postData(apiUrl, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
+                : await putData(apiUrl, formData, { headers: {'Content-Type': 'multipart/form-data'}}));
     } catch (error) {
         console.error('There was an error creating the product!', error);
     }
@@ -159,6 +163,18 @@ const handleChangeSelect = (option) => {
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              required              
+            />
+        </div>
+        <div className='div-input'>
+          <label>
+            Số lượng:            
+          </label>
+          <input
+              className='input-modal'
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
               required              
             />
         </div>

@@ -72,6 +72,10 @@ function Product() {
             name: 'Loại sản phẩm',
             selector: row => row.ProductTypeName,
         },
+        {
+            name: 'Số lượng',
+            selector: row => row.Quantity,
+        },
     ];
 
     const handleRowClicked = (row) => {   
