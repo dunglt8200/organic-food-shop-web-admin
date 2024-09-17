@@ -119,3 +119,9 @@
     font-size: 20px;
     font-style: italic; 
 }
+
+.ReactModal__Overlay {
+    background-color: rgba(127, 127, 127, 0.7) !important;
+    transition: opacity 0.3s ease-in-out !important;
+    opacity: 1
+}
