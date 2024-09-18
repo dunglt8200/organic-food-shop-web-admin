@@ -38,11 +38,11 @@ const ModalNew = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setIsShow(false)
     }
     else {
-      setId(row?._id);
-      setTitle(row?.Title);
-      setImage(row?.Img);
-      setContent(row?.Content);
-      setIsShow(row?.IsShow)
+      setId(row?._id || '');
+      setTitle(row?.Title || '');
+      setImage(row?.Img || null);
+      setContent(row?.Content || '');
+      setIsShow(row?.IsShow || false)
     }
   };
 
@@ -87,7 +87,7 @@ const ModalNew = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       contentLabel="Thêm tin tức"
       style={{
         content: {
-          top: '40%',
+          top: '45%',
           left: '50%',
           right: 'auto',
           bottom: 'auto',

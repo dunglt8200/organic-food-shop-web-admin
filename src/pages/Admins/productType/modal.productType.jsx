@@ -18,9 +18,9 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setId(null);
     }
     else {
-      setName(row?.Name);
-      setCode(row?.Code);
-      setId(row?._id);
+      setName(row?.Name || '');
+      setCode(row?.Code || '');
+      setId(row?._id || '');
     }
   };
 

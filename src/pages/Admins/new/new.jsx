@@ -66,7 +66,7 @@ function New() {
         {
             name: 'Hiển thị',
             cell: row => (
-                <input type='checkbox' checked={row?.IsShow}/>
+                <input type='checkbox' checked={row?.IsShow} readOnly/>
             ),
             selector: row => row.IsShow,
         }

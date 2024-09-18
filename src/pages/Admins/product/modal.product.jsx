@@ -38,15 +38,15 @@ const ModalProduct = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
       setQuantity('');
     }
     else {
-      setName(row?.Name);
-      setPrice(row?.Price);
-      setImage(row?.Img);
-      setCode(row?.Code);
-      setId(row?._id);
-      setQuantity(row?.Quantity);
+      setName(row?.Name || '');
+      setPrice(row?.Price || '');
+      setImage(row?.Img || null);
+      setCode(row?.Code || '');
+      setId(row?._id || '');
+      setQuantity(row?.Quantity || '');
       setSelectedOption({
-        value: row?.ProductType,
-        label: row?.ProductTypeName
+        value: row?.ProductType || '',
+        label: row?.ProductTypeName || ''
       });
     }
   }
