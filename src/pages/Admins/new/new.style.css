@@ -1,0 +1,20 @@
+.form-input-new {
+    width: 800px;
+    height: 600px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.ck-editor__editable {
+    min-height: 200px !important;
+}
+
+.div-input-ck {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
