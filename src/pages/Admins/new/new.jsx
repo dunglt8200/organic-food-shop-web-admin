@@ -47,6 +47,7 @@ function New() {
         {
             name: 'Tiêu đề',
             selector: row => row.Title,
+            maxWidth: '500px'
         },
         {
             name: 'Ảnh đại diện',
@@ -58,10 +59,12 @@ function New() {
                 />
             ),
             selector: row => row.Img,
+            maxWidth: '500px'
         },
         {
             name: 'Nội dung',
-            selector: row => row?.Content.replace(/<\/?[^>]+(>|$)/g, '')
+            selector: row => row?.Content.replace(/<\/?[^>]+(>|$)/g, ''),
+            maxWidth: '500px'
         },
         {
             name: 'Hiển thị',
@@ -69,6 +72,7 @@ function New() {
                 <input type='checkbox' checked={row?.IsShow} readOnly/>
             ),
             selector: row => row.IsShow,
+            maxWidth: '500px'
         }
     ];
 

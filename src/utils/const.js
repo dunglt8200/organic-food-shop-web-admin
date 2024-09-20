@@ -28,7 +28,8 @@ export const CustomStyles = {
   table: {
     style: {
       width: '100%',
-      height: '400px'
+      height: '400px',
+      position: 'relative'
     },
   },
   header: {

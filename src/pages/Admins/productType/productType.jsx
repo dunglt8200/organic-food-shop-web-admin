@@ -48,10 +48,12 @@ function ProductType() {
         {
             name: 'Mã loại',
             selector: row => row.Code,
+            maxWidth: '300px'
         },
         {
             name: 'Tên loại sản phẩm',
             selector: row => row.Name,
+            maxWidth: '1000px'
         }
     ];
 

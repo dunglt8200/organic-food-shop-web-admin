@@ -48,6 +48,7 @@ function Product() {
         {
             name: 'Mã sản phẩm',
             selector: row => row.Code,
+            maxWidth: '500px'
         },
         {
             name: 'Ảnh đại diện',
@@ -59,22 +60,27 @@ function Product() {
                 />
             ),
             selector: row => row.Img,
+            maxWidth: '500px'
         },
         {
             name: 'Tên sản phẩm',
             selector: row => row.Name,
+            maxWidth: '500px'
         },
         {
             name: 'Giá',
             selector: row => row.Price,
+            maxWidth: '500px'
         },
         {
             name: 'Loại sản phẩm',
             selector: row => row.ProductTypeName,
+            maxWidth: '500px'
         },
         {
             name: 'Số lượng',
             selector: row => row.Quantity,
+            maxWidth: '500px'
         },
     ];
 
