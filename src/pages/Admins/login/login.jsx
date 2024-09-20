@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./login.style.css";
 import UserApi from '../../../api/user';
 import { postData } from "../../../utils/fetchData";
+import ImgLogin from "../../../static/img/img-login.jpg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -45,6 +46,9 @@ const Login = () => {
 
   return (
     <div className="login-main">
+      <div className="div-img-login">
+          <img width={'100%'} height={'100%'} src={ImgLogin} alt="" />
+      </div>
       <div className="login-page">
         <div className="form">
           <span>Đăng Nhập</span>
