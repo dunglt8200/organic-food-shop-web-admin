@@ -47,24 +47,24 @@ const ModalNew = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
   };
 
   useEffect(() => {
-      clearInputValues();
+    clearInputValues();
   }, [isInsert, isOpen]);
 
   const handleSubmit = async () => {
     const formData = new FormData();
-        formData.append('Title', title);
-        formData.append('Content', content);
-        formData.append('Img', imageSave);
-        formData.append('Id', id);
-        formData.append('IsShow', isShow);
+    formData.append('Title', title);
+    formData.append('Content', content);
+    formData.append('Img', imageSave);
+    formData.append('Id', id);
+    formData.append('IsShow', isShow);
 
     try {
       setLoading(true);
       const apiUrl = isInsert ? NewApi.Create : NewApi.Update;
-      (isInsert ? await postData(apiUrl, formData, { headers: {'Content-Type': 'multipart/form-data'}}) 
-                : await putData(apiUrl, formData, { headers: {'Content-Type': 'multipart/form-data'}}));
+      (isInsert ? await postData(apiUrl, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        : await putData(apiUrl, formData, { headers: { 'Content-Type': 'multipart/form-data' } }));
     } catch (error) {
-        console.error('There was an error creating the new!', error);
+      console.error('There was an error creating the new!', error);
     }
     finally {
       setLoading(false);
@@ -75,11 +75,11 @@ const ModalNew = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
 
   if (loading) {
     return <>
-        <div className="loading-container">
-          <Loading loading={loading} />
-        </div>
+      <div className="loading-container">
+        <Loading loading={loading} />
+      </div>
     </>
-}
+  }
   return (
     <Modal
       isOpen={isOpen}
@@ -100,48 +100,55 @@ const ModalNew = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
     >
       <div className='div-title-modal'>
         <h2>{isInsert ? 'Thêm tin tức' : 'Cập nhật tin tức'}</h2>
-      </div>     
+      </div>
       <form className='form-input-new' onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
         <div className='div-input'>
           <label>
             Tiêu đề:
           </label>
           <input
-              className='input-modal'
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required         
-            />
+            className='input-modal'
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
         </div>
         <div className='div-input-ck'>
           <label>
             Nội dung:
           </label>
-          <CKEditor
-                    editor={ ClassicEditor }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        setContent(data)
-                    } }
-                    config={ {                                         
-                      initialData: row?.Content,      
-                    } }
-                />
+          <div style={{
+            height: "26vh",
+            boxSizing: "border-box",
+            overflowY: "auto",
+          }}>
+            <CKEditor
+              editor={ClassicEditor}
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setContent(data)
+              }}
+              config={{
+                initialData: row?.Content,
+              }}
+            />
+
+          </div>
         </div>
         <div className='div-input'>
           <span>Hiển thị: </span>
-          <Switch onChange={handleChangeSwitch} checked={isShow !== undefined ? isShow : false} />    
+          <Switch onChange={handleChangeSwitch} checked={isShow !== undefined ? isShow : false} />
         </div>
         <div className='div-input-img'>
           <label>
-            Chọn ảnh đại diện:            
+            Chọn ảnh đại diện:
           </label>
           <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
         </div>
         {image && (
           <div>
