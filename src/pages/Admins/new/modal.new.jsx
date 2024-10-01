@@ -73,13 +73,6 @@ const ModalNew = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
     }
   };
 
-  if (loading) {
-    return <>
-      <div className="loading-container">
-        <Loading loading={loading} />
-      </div>
-    </>
-  }
   return (
     <Modal
       isOpen={isOpen}
@@ -160,6 +153,9 @@ const ModalNew = ({ isOpen, onRequestClose, onInit, row, isInsert }) => {
           <button className='btn-modal' type="button" onClick={onRequestClose}>Đóng</button>
         </div>
       </form>
+      {loading && <div className="div-loading">
+                    <Loading loading={loading}/>
+                </div>}  
     </Modal>
   );
 };

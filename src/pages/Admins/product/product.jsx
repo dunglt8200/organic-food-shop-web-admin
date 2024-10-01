@@ -38,12 +38,6 @@ function Product() {
         onInit()
     }, []);
 
-    if (loading) {
-        return <>
-            <Loading loading={loading} />
-        </>
-    }
-
     const columns = [
         {
             name: 'Mã sản phẩm',
@@ -136,7 +130,10 @@ function Product() {
                         rangeSeparatorText: '/',
                         noRowsPerPage: true
                       }}
-                />               
+                />  
+                 {loading && <div className="div-loading">
+                    <Loading loading={loading}/>
+                </div>}              
             </div>
         </div>
     )

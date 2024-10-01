@@ -37,12 +37,6 @@ function New() {
         onInit()
     }, []);
 
-    if (loading) {
-        return <>
-            <Loading loading={loading} />
-        </>
-    }
-
     const columns = [
         {
             name: 'Tiêu đề',
@@ -128,8 +122,11 @@ function New() {
                         rangeSeparatorText: '/',
                         noRowsPerPage: true
                       }}
-                />               
-            </div>
+                />     
+                {loading && <div className="div-loading">
+                    <Loading loading={loading}/>
+                </div>}                           
+            </div>           
         </div>
     )
 }

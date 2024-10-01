@@ -94,14 +94,6 @@ const handleLoadListLoaiSP = async () => {
     }
   };
 
-  if (loading) {
-    return <>
-        <div className="loading-container">
-          <Loading loading={loading} />
-        </div>
-    </>
-}
-
 const handleChangeSelect = (option) => {
   setSelectedOption(option);
 };
@@ -198,6 +190,9 @@ const handleChangeSelect = (option) => {
           <button className='btn-modal' type="button" onClick={onRequestClose}>Đóng</button>
         </div>
       </form>
+      {loading && <div className="div-loading">
+                    <Loading loading={loading}/>
+                </div>} 
     </Modal>
   );
 };

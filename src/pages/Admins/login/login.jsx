@@ -4,17 +4,19 @@ import "./login.style.css";
 import UserApi from '../../../api/user';
 import { postData } from "../../../utils/fetchData";
 import ImgLogin from "../../../static/img/img-login.jpg";
+import Loading from '../../common/loading';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [loginErrorMess, setLoginErrorMess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     let messError = "";
-
+    setLoading(true);
     // Kiểm tra nếu trường username trống
     if (username.trim() === "") {
       messError = "Vui lòng nhập đầy đủ thông tin ";
@@ -36,12 +38,15 @@ const Login = () => {
         navigate("/");
       }
       else {
+        setLoading(false);
         setLoginErrorMess("Tài khoản hoặc mật khẩu không chính xác");
       }
     }
     else
-    setLoginErrorMess(messError)
-
+    {
+      setLoading(false);
+      setLoginErrorMess(messError)
+    }
   };
 
   return (
@@ -56,8 +61,11 @@ const Login = () => {
             <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             {loginErrorMess && <span className="error-message">{loginErrorMess}</span>}
-            <button onClick={handleLogin}>Đăng Nhập</button>
+            <button onClick={handleLogin}>Đăng Nhập</button>          
           </form>
+          {loading && <div className="div-loading-login">
+              <Loading loading={loading}/>
+            </div>} 
         </div>
       </div>
     </div>
