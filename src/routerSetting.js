@@ -43,7 +43,8 @@ const renderCompoent = () => {
                     }></Route>
                 )
             
-        ))}       
+        ))}   
+        <Route path="*" element={<Login />} />    
         </Routes>     
     </MasterLayout>
    );
