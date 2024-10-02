@@ -8,6 +8,8 @@ import Home from "./pages/Admins/home/home";
 import PrivateRoute from "./utils/PrivateRoute";
 import Login from "./pages/Admins/login/login";
 import New from "./pages/Admins/new/new";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const renderCompoent = () => {
     const routerPages = [
@@ -29,6 +31,16 @@ const renderCompoent = () => {
        },
     ];
 
+    const NotFoundRedirect = () => {
+        const navigate = useNavigate();
+    
+        useEffect(() => {
+            navigate('/login');
+        }, [navigate]);
+    
+        return null;
+    };
+
    return(
     <MasterLayout>
         <Routes>
@@ -44,7 +56,7 @@ const renderCompoent = () => {
                 )
             
         ))}   
-        <Route path="*" element={<Login />} />    
+        <Route path="*" element={<NotFoundRedirect />} />    
         </Routes>     
     </MasterLayout>
    );
